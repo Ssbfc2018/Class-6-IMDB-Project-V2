@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Class_6_IMDB_Project_V2.Models.MovieActor>
+
+@{
+    ViewData["Title"] = "ListMovies";
+}
+
+<h1>@ViewBag.Actor.FullName Movies</h1>
+
+<a asp-controller="IMDB" asp-action="Index">Actor List</a> |
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                Title
+            </th>
+            <th>
+                Release Date
+            </th>
+            <th>
+                Budget
+            </th>
+            <th>
+                Run Time
+            </th>
+
+            <th>
+                Genre
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Movie.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Movie.ReleaseDate)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Movie.Budget)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Movie.RunTime)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Movie.GenreId)
+            </td>
+
+            <td>
+   
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Class_6_IMDB_Project_V2.Models.Actor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birthday)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthday)
+            </td>
+
+            <td>
+                <a asp-controller="IMDB" asp-action="ListMovies"
+                asp-route-id="@item.Id" asp-route-movieActor="@item.MovieActors">Movies</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
